@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "e11450cc-b85e-4a57-a459-e0304bfffb72",
+		"name": "API Challenges",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40163294"
+	},
+	"item": [
+		{
+			"name": "Get all the Entities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 OK döndü mü?\", function(){\r",
+							"\r",
+							" pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Entity değeri 1 döndü mü?\", function(){\r",
+							"\r",
+							"    pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a not exist Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"404 Hatası döndü mü?\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entites/13",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entites",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Entity başarıyla oluşturuldu mu?\", function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mevlut\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/sim/entities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change an Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Entity başarıyla değiştirildi mi?\", function(){\r",
+							"\r",
+							"    pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"try to change\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/sim/entities/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Entity başarıyla silindi mi?\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Options",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HTTP Responses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 kodu döndü mü?\", function(){\r",
+							"    pm.response.to.have.status(405);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities"
+					]
+				},
+				"description": "We expected to get response status code 405 but, we got status code 501. It's an API problem."
+			},
+			"response": []
+		},
+		{
+			"name": "Head Request",
+			"request": {
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/sim/entities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"sim",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
