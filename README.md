@@ -1,4 +1,4 @@
-# API-Challenges
+# API-Challenges Hakkında
 [TR]
 
 Bu repo, https://apichallenges.eviltester.com/ sayfasında bulunan, API Challenges adlı API testlerini içermektedir.
